@@ -8,7 +8,8 @@
 }
 
 :root {
-	--main: hsl(342, 75.5%, 30.4%);
+	/*--main: hsl(342, 75.5%, 30.4%);*/
+	--main: hsl(0, 90.6%, 70.8%);
 }
 
 main {
@@ -54,8 +55,14 @@ header h1 {
 .input-area input {
 	border: 2px solid #000;
 	font-size: 1.2em;
-	padding-left: 8px;
+	padding-inline: 12px 6px;
 	width: 100%;
+	border-radius: 6px 0px 0px 6px;
+}
+
+.input-area input:hover {
+	border-color: var(--main);
+	caret-color: var(--main);
 }
 
 .input-area button {
@@ -64,6 +71,7 @@ header h1 {
 	color: #fff;
 	padding: 10px 16px;
 	font-size: 1.1em;
+	border-radius: 0px 6px 6px 0px;
 }
 
 .task-list {
@@ -72,8 +80,39 @@ header h1 {
 }
 
 .task-list li {
-	font-size: 1.2em;
+	font-size: 1.4em;
 	font-weight: 600;
+	padding-block: 10px;
+	padding-right: 1em;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.task-list li::before {
+	content: "\2713";
+	margin-right: 12px;
+	border: 1px solid #000;
+	padding: 4px 8px;
+	border-radius: 50%;
+	font-size: 16px;
+}
+
+.task-list li.checked {
+	text-decoration: line-through;
+}
+
+.task-list li.checked::before {
+	text-decoration: none !important;
+	background: var(--main);
+	color: #fff;
+	border-color: var(--main);
+}
+
+.task-list span {
+	position: absolute;
+	right: 0px;
+	text-align: center;
 }
 
 footer {
